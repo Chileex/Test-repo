@@ -1,0 +1,127 @@
+[gd_scene load_steps=17 format=3 uid="uid://qjsq6g3h4lp3"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_fd60k"]
+[ext_resource type="Texture2D" uid="uid://cep3hm254c7ru" path="res://sprites/SNES - Terranigma - Huball gap 1.png" id="2_kfwbr"]
+[ext_resource type="Script" path="res://huball.gd" id="3_gw8ng"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6dbr"]
+atlas = ExtResource("2_kfwbr")
+region = Rect2(34, 17, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijmt0"]
+atlas = ExtResource("2_kfwbr")
+region = Rect2(34, 34, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jegs"]
+atlas = ExtResource("2_kfwbr")
+region = Rect2(34, 51, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4elv"]
+atlas = ExtResource("2_kfwbr")
+region = Rect2(51, 17, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykuo4"]
+atlas = ExtResource("2_kfwbr")
+region = Rect2(51, 34, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnbu2"]
+atlas = ExtResource("2_kfwbr")
+region = Rect2(51, 51, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgmes"]
+atlas = ExtResource("2_kfwbr")
+region = Rect2(17, 17, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ic05"]
+atlas = ExtResource("2_kfwbr")
+region = Rect2(17, 34, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffcv1"]
+atlas = ExtResource("2_kfwbr")
+region = Rect2(17, 51, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_viy71"]
+atlas = ExtResource("2_kfwbr")
+region = Rect2(0, 17, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqds4"]
+atlas = ExtResource("2_kfwbr")
+region = Rect2(0, 34, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5tog"]
+atlas = ExtResource("2_kfwbr")
+region = Rect2(0, 51, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_raquh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6dbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijmt0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jegs")
+}],
+"loop": true,
+"name": &"move_down",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4elv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykuo4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnbu2")
+}],
+"loop": true,
+"name": &"move_left",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgmes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ic05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffcv1")
+}],
+"loop": true,
+"name": &"move_right",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_viy71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqds4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5tog")
+}],
+"loop": true,
+"name": &"move_up",
+"speed": 3.0
+}]
+
+[node name="Characters" type="Node2D"]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Player" type="Area2D" parent="."]
+script = ExtResource("1_fd60k")
+
+[node name="Huball" type="AnimatedSprite2D" parent="Player"]
+texture_filter = 1
+position = Vector2(369, 198)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_raquh")
+animation = &"move_up"
+script = ExtResource("3_gw8ng")
