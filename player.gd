@@ -7,12 +7,7 @@ var previous_velocity = Vector2.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
-	var xer = 0
-	var yer = 10
-	for every in 3:
-		print_debug(xer," " , yer)
-		yer = xer
-		yer += 1
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,6 +24,7 @@ func _process(delta: float) -> void:
 	$Huball.position += velocity * delta
 	$Huball.position = $Huball.position.clamp(Vector2.ZERO, screen_size)
 	
+
 	#print_debug(velocity)
 	
 	var normalized = Vector2(1, 1).normalized() * speed
@@ -45,10 +41,5 @@ func _process(delta: float) -> void:
 		$Huball.animation = "move_down"
 	else:
 		pass
-	# fix some directions for keyboard
-	# problem is >= -values? - YES!
-
-		
-
 	
 	previous_velocity = velocity
