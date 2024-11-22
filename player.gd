@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 400
+var speed = 600
 var screen_size
 var previous_velocity = Vector2.ZERO
 @onready var sprite: Node = $Huball
@@ -35,18 +35,18 @@ func _process(delta: float) -> void:
 	
 	#print_debug(normalized.x, " : ", normalized.y)
 	
-	if velocity.x > 0 and (previous_velocity.y < normalized.y && previous_velocity.y >= -normalized.y):
+	if velocity.x > 0 and (previous_velocity.y < normalized.y && previous_velocity.y > -normalized.y):
 		$Huball.animation = "move_right"
-	elif velocity.x < 0 and (previous_velocity.y < normalized.y && previous_velocity.y >= -normalized.y):
+	elif velocity.x < 0 and (previous_velocity.y < normalized.y && previous_velocity.y > -normalized.y):
 		$Huball.animation = "move_left"
-	elif velocity.y < 0 and (previous_velocity.x < normalized.x && previous_velocity.x >= -normalized.x):
+	elif velocity.y < 0 and (previous_velocity.x < normalized.x && previous_velocity.x > -normalized.x):
 		$Huball.animation = "move_up"
-	elif velocity.y > 0 and (previous_velocity.x < normalized.x && previous_velocity.x >= -normalized.x):
+	elif velocity.y > 0 and (previous_velocity.x < normalized.x && previous_velocity.x > -normalized.x):
 		$Huball.animation = "move_down"
 	else:
 		pass
 	# fix some directions for keyboard
-	# problem is >= -values? 
+	# problem is >= -values? - YES!
 
 		
 
