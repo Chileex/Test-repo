@@ -3,10 +3,12 @@ extends Area2D
 var speed = 600
 var screen_size
 var previous_velocity = Vector2.ZERO
+var previous_animation: String
 @onready var sprite: Node = $Huball
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
+	$Huball.animation = "idle_down"
 
 
 
@@ -43,3 +45,15 @@ func _process(delta: float) -> void:
 		pass
 	
 	previous_velocity = velocity
+	previous_animation = $Huball.animation
+	if velocity.length() == 0:
+		if previous_animation == "move_right":
+			$Huball.animation = "idle_right"
+		elif previous_animation == "move_left":
+			$Huball.animation = "idle_left"
+		elif previous_animation == "move_up":
+			$Huball.animation = "idle_up"
+		elif previous_animation == "move_down":
+			$Huball.animation = "idle_down"
+		else:
+			pass
