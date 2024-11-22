@@ -1,34 +1,4 @@
-velocity = Vector2(x, y)
 
 
-	if velocity.x > 0:
-		$Huball.animation = "move_right"
-	if velocity.x > 0 and velocity.y > 0:
-		$Huball.animation = "move_right"
-	if velocity.x > 0 and velocity.y < 0:
-		$Huball.animation = "move_right"
-	if velocity.x < 0:
-		$Huball.animation = "move_left"
-	if velocity.x < 0 and velocity.y > 0:
-		$Huball.animation = "move_left"
-	if velocity.x < 0 and velocity.y < 0:
-		$Huball.animation = "move_left"
-	if velocity.y < 0 and velocity.x == 0:
-		$Huball.animation = "move_up"
-	if velocity.y > 0 and velocity.x == 0:
-		$Huball.animation = "move_down"
 
-rechts
-	nur rechts --> rechts
-	rechts oben
-		pass
-	rechts unten
-		pass
-	else rechts
-oben
-	nur oben --> oben
-	oben rechts
-		pass
-	oben links
-		pass
-	else oben
+
